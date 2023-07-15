@@ -80,6 +80,9 @@ set splitbelow
 " Set the fold method to marker for now
 set foldmethod=marker
 
+" Enable terminal gui colors
+set termguicolors
+
 " /*}}}*/
 
 " MAPPINGS ------------------------------------------------------------- /*{{{*/
