@@ -1,0 +1,24 @@
+If you ant to add indentation without stopping, then you have to try the “.” Key
+from the keyword after using “shift+.”. It will add the indentation from the
+starting point until it stops it.
+
+
+Another method to add the indentation or tab multiple lines at a time is using 
+the command line mode of Vim. Within the insert mode, place the cursor at any 
+line you want to tab lines, i.e., the 2nd line as shown. You need to open the
+visual block mode first for indentation, using the “ctrl+v” shortcut. After that
+, press the “next” button to select the number of characters to be indented and 
+press “j” to cover the lines to tab along, i.e., 2 to 4.
+
+
+
+
+	line1
+	line2
+	line3
+
+
+
+
+
+
