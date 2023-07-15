@@ -144,6 +144,7 @@ iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 " Use vim-plug plugin manager for vim
 call plug#begin('~/.vim/plugged')
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+	Plug 'vim-scripts/Auto-Pairs'
 
 
 
@@ -153,6 +154,7 @@ call plug#end()
 " Colorscheme
 colorscheme catppuccin-mocha
 hi Normal guibg=NONE ctermbg=NONE
+
 
 " /*}}}*/
 
