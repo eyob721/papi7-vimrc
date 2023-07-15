@@ -141,12 +141,13 @@ iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 " /*}}}*/
 
 " PLUGINS -------------------------------------------------------------- /*{{{*/
+" Use vim-plug plugin manager for vim
+call plug#begin('~/.vim/plugged')
 
 
 
 
-
-
+call plug#end()
 
 " /*}}}*/
 
