@@ -155,6 +155,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 	Plug 'vim-scripts/Auto-Pairs'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-commentary'
 
 
 
