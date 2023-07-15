@@ -143,11 +143,17 @@ iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 " PLUGINS -------------------------------------------------------------- /*{{{*/
 " Use vim-plug plugin manager for vim
 call plug#begin('~/.vim/plugged')
-
+	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 
 
 call plug#end()
 
+" Plugin OPTIONS
+" Colorscheme
+colorscheme catppuccin-mocha
+hi Normal guibg=NONE ctermbg=NONE
+
 " /*}}}*/
+
 
