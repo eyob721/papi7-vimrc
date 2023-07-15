@@ -68,7 +68,21 @@ syntax enable
 " Use the system clipboard
 set clipboard=unnamedplus
 
+" Split windows to the right or below
+set splitright
+set splitbelow
+
 " MAPPINGS -------------------------------------------------------------------
+" Set leader key
+let mapleader = " "
+let maplocalleader = " "
+
+" Open my vimrc file in a vertical split for editing
+noremap <leader>ev :vsplit $MYVIMRC<CR>
+
+" Source my vimrc file, for changes to take effect
+noremap <leader>sv :source $MYVIMRC<CR>
+
 " Move lines up or down in NORMAL mode
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -81,9 +95,15 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>==gv
 vnoremap <A-k> :m '<-2<CR>==gv
 
-" Indent selected lines
+" Indent selected lines and stay in visual mode
 vnoremap > >gv
 vnoremap < <gv
+
+" Better windows naviagtion
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Disable Arrow keys to practice hjkl
 noremap <Up> <nop>
