@@ -1,5 +1,5 @@
 " Greeting ASCII-art cat
-echo ">^.^<"
+" echo ">^.^<"
 
 " FIXES ----------------------------------------------------------------------
 " Fix for the ALT key + small letters
@@ -78,8 +78,12 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
 " Move lines up or down in VISUAL mode
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-j> :m '>+1<CR>==gv
+vnoremap <A-k> :m '<-2<CR>==gv
+
+" Indent selected lines
+vnoremap > >gv
+vnoremap < <gv
 
 " Disable Arrow keys to practice hjkl
 noremap <Up> <nop>
