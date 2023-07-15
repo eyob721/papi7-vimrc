@@ -37,6 +37,12 @@ set number
 " Show relative line numbers
 set relativenumber
 
+" Show the signcoumn
+set signcolumn=yes
+
+" Faster completion
+set updatetime=300
+
 " Wrap long lines in display, doesnt change the line in the buffer
 set nowrap
 
@@ -148,6 +154,7 @@ iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 call plug#begin('~/.vim/plugged')
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 	Plug 'vim-scripts/Auto-Pairs'
+	Plug 'airblade/vim-gitgutter'
 
 
 
