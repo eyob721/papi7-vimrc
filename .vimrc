@@ -1,7 +1,7 @@
 " Greeting ASCII-art cat
 " echo ">^.^<"
 
-" FIXES ----------------------------------------------------------------------
+" FIXES ---------------------------------------------------------------- /*{{{*/
 " Fix for the ALT key + small letters
 " e.g. <A-j>
 let c='a'
@@ -28,7 +28,9 @@ set timeout ttimeoutlen=50
 " Fix compatibility issues with Vi
 "set nocompatible
 
-" OPTIONS --------------------------------------------------------------------
+" /*}}}*/
+
+" OPTIONS -------------------------------------------------------------- /*{{{*/
 " Show line numbers
 set number
 
@@ -75,7 +77,12 @@ set clipboard=unnamedplus
 set splitright
 set splitbelow
 
-" MAPPINGS -------------------------------------------------------------------
+" Set the fold method to marker for now
+set foldmethod=marker
+
+" /*}}}*/
+
+" MAPPINGS ------------------------------------------------------------- /*{{{*/
 " Set leader key
 let mapleader = " "
 let maplocalleader = " "
@@ -122,10 +129,24 @@ inoremap <Left> <nop>
 " Better way of exiting insert mode
 inoremap jk <ESC>
 
-" ABBREVATIONS --------------------------------------------------------------
+" /*}}}*/
+
+" ABBREVATIONS --------------------------------------------------------- /*{{{*/
 " papi7 :)
 iabbrev p7 papi7
 
 " For c documentation
 iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
+
+" /*}}}*/
+
+" PLUGINS -------------------------------------------------------------- /*{{{*/
+
+
+
+
+
+
+
+" /*}}}*/
 
