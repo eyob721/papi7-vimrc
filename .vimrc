@@ -63,7 +63,10 @@ set confirm
 set mouse=a
 
 " Turn on syntax highlighting
-syntax enable
+syntax on
+
+" Minimal number of lines to keep above or below the cursor.
+set scrolloff=7 
 
 " Use the system clipboard
 set clipboard=unnamedplus
@@ -111,7 +114,18 @@ noremap <Down> <nop>
 noremap <Right> <nop>
 noremap <Left> <nop>
 
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Right> <nop>
+inoremap <Left> <nop>
+
+" Better way of exiting insert mode
+inoremap jk <ESC>
+
 " ABBREVATIONS --------------------------------------------------------------
+" papi7 :)
 iabbrev p7 papi7
+
+" For c documentation
 iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 
