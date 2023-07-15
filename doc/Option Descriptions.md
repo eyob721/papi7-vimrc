@@ -1,24 +1,24 @@
 # Options
-​
+
 There are two types of options in vim
-​
+
 1.  Boolean
 2.  Options with value
-​
+
 Boolean options can be either false or true, (off or on)
-​
+
 Options with value take a value
-​
+
 # List of options
-​
+
 Only use the highlighted options, leave the others to their defaults
-​
+
 NOTE:
-​
+
 - "" = empty string
 - off = false
 - on = true
-​
+
 | Option | Default | My preference | Description |
 | --- | --- | --- | --- |
 | number | off | on  | Shows line numbers |
@@ -39,11 +39,10 @@ NOTE:
 | confirm | off | on  | When 'confirm' is on, certain operations that would normally<br>fail because of unsaved changes to a buffer, e.g. ":q" and ":e",<br>instead raise a \|dialog\| asking if you wish to save the current<br>file(s). |
 | mouse | ""  | a   | Enable the use of the mouse.<br>The mouse can be enabled for different modes:<br>\- n Normal mode and Terminal modes<br>\- v Visual mode<br>\- i Insert mode<br>\- c Command-line mode<br>\- h all previous modes when editing a help file<br>\- a all previous modes<br>\- r for \|hit-enter\| and \|more-prompt\| prompt |
 | clipboard | unnamed | unnamedplus | In linux OS, you have two clipboards<br>\- system clipboard (unnamedplus, or "+)<br>\- selection clipboard (unnamed, or "*)<br>Vim uses by default the selection clipboard, to use the system clipboard use `:set clipboard=unnamedplus`<br>Now you can<br>\- `Ctrl C` in other programs and put in Vim with `p` on all three platforms,<br>\- yank in Vim with `y` and `Ctrl V` in other programs on all three platforms.<br>Be aware that copying/pasting from the system clipboard **will not work if `:echo has('clipboard')` returns 0**.<br>In this case, vim is not compiled with the `+clipboard` feature and you'll have to install a different version or recompile it.<br>Some linux distros supply a minimal vim installation by default, but if you **install the `vim-gtk` or `vim-gtk3` package** you can get the extra features nonetheless. |
-| backspace | ""  | "indent,eol,start" | Influences the working of &lt;BS&gt;, &lt;Del&gt;, CTRL-W and CTRL-U in Insert<br>mode. This is a list of items, separated by commas. Each item allows<br>a way to backspace over something:<br>indent  = allow backspacing over autoindent<br>eol  = allow backspacing over line breaks (join lines)<br>start  = allow backspacing over the start of insert; CTRL-W and CTRL-U stop once at the start of insert.<br>nostop = like start, except CTRL-W and CTRL-U do not stop at the start of insert.<br>When the value is empty, Vi compatible backspacing is used, none of<br>the ways mentioned for the items above are possible. |
+| backspace | ""  | "indent,eol,start" | Influences the working of &lt;BS&gt;, &lt;Del&gt;, CTRL-W and CTRL-U in Insert<br>mode. This is a list of items, separated by commas. Each item allows<br>a way to backspace over something:<br>indent  = allow backspacing over autoindent<br>eol  = allow backspacing over line breaks (join lines)<br>start  = allow backspacing over the start of insert; CTRL-W and CTRL-U stop once at the start of insert.<br>nostop = like start, except CTRL-W and CTRL-U do not stop at the start of insert.<br>When the value is empty, Vi compatible backspacing is used, none of<br>the ways mentioned for the items above are possible. |
 | syntax | ""  | enable | Enable syntax highlighting |
 | splitright | off | on  | When on, splitting a window will put the new window right of the current one. `:vsplit` |
 | splitbelow | off | on  | When on, splitting a window will put the new window below of the current one. `:split` |
 | backup | off | Default | Make a backup before overwriting a file. Leave it around after the file has been successfully written. |
 | scrolloff | 0   | 7   | Minimal number of screen lines to keep above and below the cursor.<br>This will make some context visible around where you are working. If<br>you set it to a very large value (999) the cursor line will always be<br>in the middle of the window (except at the start or end of the file or<br>when long lines wrap). |
 | signcolumn | auto | yes | Whether or not to draw the signcolumn. Valid values are:<br>"auto" = only when there is a sign to display<br>"no" = never<br>"yes" = always<br>"number" = display signs in the 'number' column. If the number column is not present, then behaves like "auto". |
-
