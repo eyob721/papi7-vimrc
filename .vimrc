@@ -111,3 +111,7 @@ noremap <Down> <nop>
 noremap <Right> <nop>
 noremap <Left> <nop>
 
+" ABBREVATIONS --------------------------------------------------------------
+iabbrev p7 papi7
+iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
+
