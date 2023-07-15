@@ -17,10 +17,16 @@ let c='a'
 while c <= 'z'
   exec "set <A-".c.">=\e".c
   exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
+let c = nr2char(1+char2nr(c))
 endw
 
 set timeout ttimeoutlen=50
+
+" To allow backspacing over everything in insert mode
+"set backspace=indent,eol,start
+
+" Fix compatibility issues with Vi
+"set nocompatible
 
 " OPTIONS --------------------------------------------------------------------
 " Show line numbers
@@ -55,6 +61,12 @@ set confirm
 
 " Enable mouse in all modes
 set mouse=a
+
+" Turn on syntax highlighting
+syntax enable
+
+" Use the system clipboard
+set clipboard=unnamedplus
 
 " MAPPINGS -------------------------------------------------------------------
 " Move lines up or down in NORMAL mode
