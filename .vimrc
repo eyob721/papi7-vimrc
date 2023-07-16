@@ -177,6 +177,7 @@ call plug#begin('~/.vim/plugged')
 
 	" For displaying git signs
 	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
 
 	" To comment multiple lines
 	Plug 'tpope/vim-commentary'
@@ -196,8 +197,6 @@ call plug#end()
 " Colorscheme
 colorscheme catppuccin-mocha
 hi Normal guibg=NONE ctermbg=NONE
-
-
 " /*}}}*/
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
@@ -207,3 +206,26 @@ hi Normal guibg=NONE ctermbg=NONE
 
 
 " /*}}}/*
+
+" STATUS LINE ---------------------------------------------------------- /*{{{*/
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='catppuccin'
+
+" Custom config to show tab or space and tabwidth
+let expand = &expandtab
+let size = &tabstop
+if expand == 0
+	let g:airline_section_y = 'tabs: %{size}'
+else
+	let g:airline_section_y = 'spaces: %{size}'
+endif
+
+" My preference for lines, rows, columns, ...
+let g:airline_section_z = '%l/%L  Ln %l, Col %c   %p%%'
+
+
+"/*}}}*/
+
