@@ -58,6 +58,12 @@ set tabstop=4
 " Number of spaces to indent for autoindent, 'cindent', or >> and << commands
 set shiftwidth=0
 
+" Show white spaces
+set nolist
+
+" Define whitespace characters
+set listchars=tab:»·,trail:·
+
 " Show a menu for autocompletion for commands
 set wildmenu
 
@@ -137,6 +143,9 @@ inoremap <Left> <nop>
 
 " Better way of exiting insert mode
 inoremap jk <ESC>
+
+" Toggle white spaces
+noremap <leader><Tab> :set list! <CR>
 
 " /*}}}*/
 
