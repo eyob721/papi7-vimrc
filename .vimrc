@@ -68,10 +68,11 @@ set tabstop=4
 set shiftwidth=0
 
 " Show white spaces
-set nolist
+set list
 
 " Define whitespace characters
-set listchars=tab:»·,trail:·
+set listchars=tab:➛\ ,trail:·
+" set listchars=tab:»\ ,trail:·
 
 " Show a menu for autocompletion for commands
 set wildmenu
@@ -208,6 +209,7 @@ call plug#end()
 " Colorscheme
 colorscheme catppuccin-mocha
 hi Normal guibg=NONE ctermbg=NONE
+
 " /*}}}*/
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
@@ -215,6 +217,11 @@ hi Normal guibg=NONE ctermbg=NONE
 " This will make sure that every additional file opened is opened in a tab
 " autocmd BufReadPost * tab ball
 
+" Dim special keys (tab:→\ ,trail:.)
+autocmd VimEnter * hi SpecialKey ctermfg=grey guifg=grey21
+autocmd BufReadPre * hi SpecialKey ctermfg=grey guifg=grey21
+autocmd BufRead * hi SpecialKey ctermfg=grey guifg=grey21
+autocmd BufNewFile * hi SpecialKey ctermfg=grey guifg=grey21
 
 " /*}}}/*
 
