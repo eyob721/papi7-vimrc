@@ -151,6 +151,10 @@ noremap <leader><Tab> :set list! <CR>
 " Fuzzy Finder Key Mappings
 noremap <leader>ff :Files<CR>
 
+" Moving buffers
+noremap <C-S-PageUp> :-tabmove<CR>
+noremap <C-S-PageDown> :+tabmove<CR>
+
 " /*}}}*/
 
 " ABBREVATIONS --------------------------------------------------------- /*{{{*/
@@ -191,4 +195,10 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " /*}}}*/
 
+" VIMSCRIPT ------------------------------------------------------------ /*{{{*/
 
+" This will make sure that every additional file opened is opened in a tab
+autocmd BufReadPost * tab ball
+
+
+" /*}}}/*
