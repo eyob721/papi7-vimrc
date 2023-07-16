@@ -43,6 +43,15 @@ set signcolumn=yes
 " Faster completion
 set updatetime=300
 
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
+filetype on
+
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
+
+" Load an indent file for the detected file type.
+filetype indent on
+
 " Wrap long lines in display, doesnt change the line in the buffer
 set nowrap
 
