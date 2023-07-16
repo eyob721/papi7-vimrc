@@ -198,7 +198,7 @@ hi Normal guibg=NONE ctermbg=NONE
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
 
 " This will make sure that every additional file opened is opened in a tab
-autocmd BufReadPost * tab ball
+" autocmd BufReadPost * tab ball
 
 
 " /*}}}/*
