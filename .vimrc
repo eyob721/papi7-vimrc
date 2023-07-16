@@ -199,6 +199,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
+	" Vim surround
+	Plug 'tpope/vim-surround'
 
 call plug#end()
 
