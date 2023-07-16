@@ -147,6 +147,10 @@ inoremap jk <ESC>
 " Toggle white spaces
 noremap <leader><Tab> :set list! <CR>
 
+
+" Fuzzy Finder Key Mappings
+noremap <leader>ff :Files<CR>
+
 " /*}}}*/
 
 " ABBREVATIONS --------------------------------------------------------- /*{{{*/
@@ -161,12 +165,21 @@ iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
 " PLUGINS -------------------------------------------------------------- /*{{{*/
 " Use vim-plug plugin manager for vim
 call plug#begin('~/.vim/plugged')
+	" Colorscheme
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+	" Autoparis plugin for quotes
 	Plug 'vim-scripts/Auto-Pairs'
+
+	" For displaying git signs
 	Plug 'airblade/vim-gitgutter'
+
+	" To comment multiple lines
 	Plug 'tpope/vim-commentary'
 
-
+	" Fuzzy Finder
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
