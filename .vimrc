@@ -67,6 +67,12 @@ set tabstop=4
 " Number of spaces to indent for autoindent, 'cindent', or >> and << commands
 set shiftwidth=0
 
+" Indent the next line the same as the previuos line
+set autoindent
+
+" Make indenting smarter
+set smartindent
+
 " Show white spaces
 set list
 
@@ -76,9 +82,6 @@ set listchars=tab:➛\ ,trail:·
 
 " Show a menu for autocompletion for commands
 set wildmenu
-
-" Bash like completion
-set wildmode=list:longest,full
 
 " Highlight all the text that matches what you have typed, as you search
 set incsearch
