@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- *main - test for vimrc
+ * main - test for vimrc
  *
  * Return: 0 on success, or 1 on error
  */
