@@ -26,7 +26,7 @@ set timeout ttimeoutlen=50
 "set backspace=indent,eol,start
 
 " Fix compatibility issues with Vi
-"set nocompatible
+set nocompatible
 
 " /*}}}*/
 
@@ -76,6 +76,9 @@ set listchars=tab:➛\ ,trail:·
 
 " Show a menu for autocompletion for commands
 set wildmenu
+
+" Bash like completion
+set wildmode=list:longest,full
 
 " Highlight all the text that matches what you have typed, as you search
 set incsearch
@@ -209,6 +212,21 @@ call plug#end()
 " Colorscheme
 colorscheme catppuccin-mocha
 hi Normal guibg=NONE ctermbg=NONE
+
+" Indent line
+" let g:indentLine_setColors = 0
+" let g:indentLine_char = '|'
+" let g:indentLine_fileType = ['c']
+" let g:indentLine_buftypeExclude = ["help", "terminal"]
+
+" Conceal Settings
+" let g:indentLine_setConceal = 1
+" let g:indentLine_concealCursor = "incv"
+" let g:indentLine_concealLevel = 2
+
+" Leading Space
+" let g:indentLine_leadingSpaceEnabled = 1
+" let g:indentLine_leadingSpaceChar = '.'
 
 " /*}}}*/
 
