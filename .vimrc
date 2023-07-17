@@ -209,18 +209,20 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
-	"Ale
+	" Ale
 	" Enable completion where available.
 	" This setting must be set before ALE is loaded.
 	"
 	" You should not turn this setting on if you wish to use ALE as a completion
 	" source for other completion plugins, like Deoplete.
 	let g:ale_completion_enabled = 1
-
 	Plug 'dense-analysis/ale'
 
 	" Vim surround
 	Plug 'tpope/vim-surround'
+
+	" CoC Auto completion Use release branch (recommended)
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -240,6 +242,22 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
+
+" /*}}}*/
+
+" COC CONFIG ----------------------------------------------------------- /*{{{*/
+
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+			\ coc#pum#visible() ? coc#pum#next(1) :
+			\ CheckBackspace() ? "\<Tab>" :
+			\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 " /*}}}*/
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
@@ -275,4 +293,4 @@ endif
 let g:airline_section_z = '%l/%L  Ln %l, Col %c   %p%%'
 
 
-"/*}}}*/
+"/*}}}*
