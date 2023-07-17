@@ -1,12 +1,16 @@
 #include <stdio.h>
 
+
+
+
+
+
 /**
- * 
- * 
- * 
+ *
+ *
+ *
  */
-int main(void)
-{
+int main(void) {
 	int i;
 
 	if (i = 0; i < 10; i++)
@@ -15,4 +19,3 @@ int main(void)
 	}
 	return (0);
 }
-

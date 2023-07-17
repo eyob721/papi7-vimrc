@@ -93,7 +93,7 @@ set mouse=a
 syntax on
 
 " Minimal number of lines to keep above or below the cursor.
-set scrolloff=7 
+set scrolloff=7
 
 " Use the system clipboard
 set clipboard=unnamedplus
@@ -107,6 +107,9 @@ set foldmethod=marker
 
 " Enable terminal gui colors
 set termguicolors
+
+" Do not make swap files, it is just clutter
+set noswapfile
 
 " /*}}}*/
 
@@ -203,6 +206,16 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
+	"Ale
+	" Enable completion where available.
+	" This setting must be set before ALE is loaded.
+	"
+	" You should not turn this setting on if you wish to use ALE as a completion
+	" source for other completion plugins, like Deoplete.
+	let g:ale_completion_enabled = 1
+
+	Plug 'dense-analysis/ale'
+
 	" Vim surround
 	Plug 'tpope/vim-surround'
 
@@ -213,21 +226,17 @@ call plug#end()
 colorscheme catppuccin-mocha
 hi Normal guibg=NONE ctermbg=NONE
 
-" Indent line
-" let g:indentLine_setColors = 0
-" let g:indentLine_char = '|'
-" let g:indentLine_fileType = ['c']
-" let g:indentLine_buftypeExclude = ["help", "terminal"]
-
-" Conceal Settings
-" let g:indentLine_setConceal = 1
-" let g:indentLine_concealCursor = "incv"
-" let g:indentLine_concealLevel = 2
-
-" Leading Space
-" let g:indentLine_leadingSpaceEnabled = 1
-" let g:indentLine_leadingSpaceChar = '.'
-
+" Ale settings
+let g:ale_linters = {
+\   'c': ['clang'],
+\   'javascript': ['eslint'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c': ['trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
 " /*}}}*/
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
@@ -264,4 +273,3 @@ let g:airline_section_z = '%l/%L  Ln %l, Col %c   %p%%'
 
 
 "/*}}}*/
-
