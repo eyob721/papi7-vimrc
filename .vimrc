@@ -166,15 +166,6 @@ inoremap jk <ESC>
 " Toggle white spaces
 noremap <leader><Tab> :set list! <CR>
 
-
-" Fuzzy Finder Key Mappings
-noremap <leader>ff :Files <CR>
-noremap <leader>ffp :Files ~/Alx/projects/<CR>
-
-" Moving buffers
-noremap <C-S-PageUp> :-tabmove<CR>
-noremap <C-S-PageDown> :+tabmove<CR>
-
 " /*}}}*/
 
 " ABBREVATIONS --------------------------------------------------------- /*{{{*/
@@ -206,17 +197,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
+	" Buffer closer
+	Plug 'Asheq/close-buffers.vim'
+
 	" Status line plugin
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
-	" Ale
-	" Enable completion where available.
-	" This setting must be set before ALE is loaded.
-	"
-	" You should not turn this setting on if you wish to use ALE as a completion
-	" source for other completion plugins, like Deoplete.
-	let g:ale_completion_enabled = 1
+	" Ale - linter and analysis
 	Plug 'dense-analysis/ale'
 
 	" Vim surround
@@ -325,6 +313,36 @@ nmap <leader>rn <Plug>(coc-rename)
 
 
 " /*}}}*/
+
+" FZF CONFIG ----------------------------------------------------------- /*{{{*/
+" -----------------------------------------
+" MAPPINGS
+" -----------------------------------------
+
+" Find files in the current dir
+noremap <leader>ff :Files <CR>
+" Find file in Alx/prjects dir
+noremap <leader>fa :Files ~/Alx/projects/<CR>
+" FInd buffers
+noremap <leader>fb :Buffers <CR>
+
+" Close the current buffer
+nnoremap <C-w>q :Bdelete this<CR>
+
+" Buffer menu
+nnoremap <silent> <C-q> :Bdelete menu<CR>
+
+" Navigating buffers
+nnoremap <A-PageUp> :bnext<CR>
+nnoremap <A-PageDown> :bprev<CR>
+
+" Moving tabs
+noremap <C-S-PageUp> :-tabmove<CR>
+noremap <C-S-PageDown> :+tabmove<CR>
+
+
+" /*}}}*/
+
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
 
