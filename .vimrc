@@ -168,7 +168,8 @@ noremap <leader><Tab> :set list! <CR>
 
 
 " Fuzzy Finder Key Mappings
-noremap <leader>ff :Files<CR>
+noremap <leader>ff :Files <CR>
+noremap <leader>ffp :Files ~/Alx/projects/<CR>
 
 " Moving buffers
 noremap <C-S-PageUp> :-tabmove<CR>
@@ -252,11 +253,76 @@ let g:ale_sign_column_always = 1
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
-inoremap <silent><expr> <TAB>
+
+" -----------------------------------------------------------------------------
+" I disabled this because using <TAB> in a middle of a line is not working,
+" When I am in insert mode and when i want to insert a tab in the middle of
+" a line or a word, it doesn'to work
+" -----------------------------------------------------------------------------
+
+" inoremap <silent><expr> <TAB>
+" 			\ coc#pum#visible() ? coc#pum#next(1) :
+" 			\ CheckBackspace() ? "\<Tab>" :
+" 			\ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" -----------------------------------------------------------------------------
+" My Modification
+" <C-j> - for selecting the next completion
+" <C-k> - for selecting the prev completion
+" NOTE: This mappings are for INSERT mode, so they do not conflict with
+" 		<C-j> and <C-k> mappings for windows navigation, which are used in
+" 		NORMAL mode
+" -----------------------------------------------------------------------------
+inoremap <silent><expr> <C-j>
 			\ coc#pum#visible() ? coc#pum#next(1) :
-			\ CheckBackspace() ? "\<Tab>" :
+			\ CheckBackspace() ? "\<C-j>" :
 			\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" -----------------------------------------------------------------------------
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-@> to trigger completion
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+
 
 " /*}}}*/
 
@@ -271,6 +337,17 @@ autocmd BufReadPre * hi SpecialKey ctermfg=grey guifg=grey21
 autocmd BufRead * hi SpecialKey ctermfg=grey guifg=grey21
 autocmd BufNewFile * hi SpecialKey ctermfg=grey guifg=grey21
 
+" vimscript to change the cursor shape when entering insert mode
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+  au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' |
+    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
+    \ endif
+  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
 " /*}}}/*
 
 " STATUS LINE ---------------------------------------------------------- /*{{{*/
