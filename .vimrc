@@ -114,6 +114,12 @@ set termguicolors
 " Do not make swap files, it is just clutter
 set noswapfile
 
+" Spell checking file
+set spellfile="~/vim_spell_en_us.utf-8.add"
+
+" Spell language
+set spelllang=en_us
+
 " /*}}}*/
 
 " MAPPINGS ------------------------------------------------------------- /*{{{*/
@@ -164,8 +170,10 @@ inoremap <Left> <nop>
 inoremap jk <ESC>
 
 " Toggle white spaces
-noremap <leader><Tab> :set list! <CR>
+noremap <leader>- :set list! <CR>
 
+" Toggle spell checking
+noremap <leader>= :set spell! <CR>
 " /*}}}*/
 
 " ABBREVATIONS --------------------------------------------------------- /*{{{*/
@@ -342,7 +350,6 @@ noremap <C-S-PageDown> :+tabmove<CR>
 
 
 " /*}}}*/
-
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
 
