@@ -74,7 +74,7 @@ set autoindent
 set smartindent
 
 " Show white spaces
-set list
+set nolist
 
 " Define whitespace characters
 set listchars=tab:➛\ ,trail:·
@@ -226,7 +226,7 @@ call plug#end()
 " Plugin OPTIONS
 " Colorscheme
 colorscheme catppuccin-mocha
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Ale settings
 let g:ale_linters = {
