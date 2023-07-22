@@ -174,6 +174,10 @@ noremap <leader>- :set list! <CR>
 
 " Toggle spell checking
 noremap <leader>= :set spell! <CR>
+
+" Save file
+nnoremap <C-s> :w<CR>
+
 " /*}}}*/
 
 " ABBREVATIONS --------------------------------------------------------- /*{{{*/
