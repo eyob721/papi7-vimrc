@@ -120,6 +120,9 @@ set spellfile="~/vim_spell_en_us.utf-8.add"
 " Spell language
 set spelllang=en_us
 
+" Show partial commands and selected words or lines
+set showcmd
+
 " /*}}}*/
 
 " MAPPINGS ------------------------------------------------------------- /*{{{*/
@@ -177,6 +180,9 @@ noremap <leader>= :set spell! <CR>
 
 " Save file
 nnoremap <C-s> :w<CR>
+
+" Select all lines
+nnoremap <C-a> ggVGG
 
 " /*}}}*/
 
