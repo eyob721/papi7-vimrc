@@ -178,8 +178,11 @@ noremap <leader>- :set list! <CR>
 " Toggle spell checking
 noremap <leader>= :set spell! <CR>
 
+" Toggle wrapping
+noremap <leader>0 :set wrap! <CR>
+
 " Save file
-nnoremap <C-s> :w<CR>
+noremap <C-s> :w<CR>
 
 " Select all lines
 nnoremap <C-a> ggVGG
@@ -351,8 +354,8 @@ nnoremap <C-w>q :Bdelete this<CR>
 nnoremap <silent> <C-q> :Bdelete menu<CR>
 
 " Navigating buffers
-nnoremap <A-PageUp> :bnext<CR>
-nnoremap <A-PageDown> :bprev<CR>
+nnoremap <A-PageDown> :bnext<CR>
+nnoremap <A-PageUp> :bprev<CR>
 
 " Moving tabs
 noremap <C-S-PageUp> :-tabmove<CR>
