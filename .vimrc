@@ -193,9 +193,6 @@ nnoremap <C-a> ggVGG
 " papi7 :)
 iabbrev p7 papi7
 
-" For c documentation
-iabbrev /** /**<CR> * <CR> * <CR> * <CR> */
-
 " /*}}}*/
 
 " PLUGINS -------------------------------------------------------------- /*{{{*/
@@ -237,9 +234,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Plugin OPTIONS
-" Colorscheme
-colorscheme catppuccin-mocha
-" hi Normal guibg=NONE ctermbg=NONE
 
 " Ale settings
 let g:ale_linters = {
@@ -252,6 +246,16 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
+
+" /*}}}*/
+
+" COLORSCHEME ----------------------------------------------------------- /*{{{*/
+
+" Choose colorscheme
+colorscheme catppuccin-mocha
+
+" Choose background
+hi Normal guibg=NONE ctermbg=NONE
 
 " /*}}}*/
 
