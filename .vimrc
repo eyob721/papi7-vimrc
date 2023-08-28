@@ -369,18 +369,27 @@ noremap <C-S-PageDown> :+tabmove<CR>
 
 " /*}}}*/
 
-" VIMSCRIPT ------------------------------------------------------------ /*{{{*/
+" AUTOCMDS ------------------------------------------------------------ /*{{{*/
 
 " This will make sure that every additional file opened is opened in a tab
 " autocmd BufReadPost * tab ball
 
 " Dim special keys (tab:→\ ,trail:.)
-autocmd VimEnter * hi SpecialKey ctermfg=grey guifg=grey21
-autocmd BufReadPre * hi SpecialKey ctermfg=grey guifg=grey21
-autocmd BufRead * hi SpecialKey ctermfg=grey guifg=grey21
-autocmd BufNewFile * hi SpecialKey ctermfg=grey guifg=grey21
+augroup dim_special_keys
+	au!
+	au VimEnter,BufReadPre,BufRead,BufNewFile * hi SpecialKey ctermfg=grey guifg=grey21
+augroup END
 
-" vimscript to change the cursor shape when entering insert mode
+aug filetypes
+	au!
+	au FileType c setlocal tabstop=4 noexpandtab
+	au FileType python setlocal tabstop=4 expandtab
+aug END
+" /*}}}/*
+
+" VIMSCRIPT ------------------------------------------------------------ /*{{{*/
+
+" Vimscript to change the cursor shape when entering insert mode
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
   au InsertEnter,InsertChange *
@@ -391,6 +400,7 @@ if has("autocmd")
     \ endif
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
+
 " /*}}}/*
 
 " STATUS LINE ---------------------------------------------------------- /*{{{*/
