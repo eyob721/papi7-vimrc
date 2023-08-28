@@ -381,26 +381,40 @@ augroup dim_special_keys
 				\ hi SpecialKey ctermfg=grey guifg=grey21
 augroup END
 
+" Filetype options
 aug filetypes
 	au!
-	au FileType c setlocal tabstop=4 noexpandtab
-	au FileType python setlocal tabstop=4 expandtab
+	au FileType c call SetOptionsC()
+	au FileType python call SetOptionsPython()
 aug END
+
+function SetOptionsC()
+	setlocal tabstop=4
+	setlocal noexpandtab
+endfunction
+
+function SetOptionsPython()
+	setlocal tabstop=4
+	setlocal expandtab
+endfunction
 " /*}}}/*
 
 " VIMSCRIPT ------------------------------------------------------------ /*{{{*/
 
 " Vimscript to change the cursor shape when entering insert mode
-if has("autocmd")
-	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-	au InsertEnter,InsertChange *
-				\ if v:insertmode == 'i' |
-				\   silent execute '!echo -ne "\e[5 q"' | redraw! |
-				\ elseif v:insertmode == 'r' |
-				\   silent execute '!echo -ne "\e[3 q"' | redraw! |
-				\ endif
-	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
-endif
+aug cursor_shape
+	if has("autocmd")
+		au!
+		au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+		au InsertEnter,InsertChange *
+					\ if v:insertmode == 'i' |
+					\   silent execute '!echo -ne "\e[5 q"' | redraw! |
+					\ elseif v:insertmode == 'r' |
+					\   silent execute '!echo -ne "\e[3 q"' | redraw! |
+					\ endif
+		au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+	endif
+aug END
 
 " /*}}}/*
 
@@ -412,16 +426,17 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='catppuccin'
 
 " Custom config to show tab or space and tabwidth
-let expand = &expandtab
-let size = &tabstop
-if expand == 0
-	let g:airline_section_y = 'tabs: %{size}'
-else
-	let g:airline_section_y = 'spaces: %{size}'
-endif
+aug show_tabs_and_width
+	au TabEnter,BufRead *
+				\ if &expandtab == 0 |
+				\   let g:airline_section_y = 'tabs: %{&tabstop}' |
+				\ else |
+				\   let g:airline_section_y = 'spaces: %{&tabstop}' |
+				\ endif |
+				\ execute 'AirlineRefresh!'
+aug END
 
 " My preference for lines, rows, columns, ...
 let g:airline_section_z = '%l/%L  Ln %l, Col %c   %p%%'
-
 
 "/*}}}*
