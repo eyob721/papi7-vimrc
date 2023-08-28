@@ -1,2 +1,2 @@
 #!/bin/bash
-cp ~/.vimrc .
+cp ~/.vimrc ~/Alx/tools/papi7-vimrc/
