@@ -234,11 +234,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-" Plugin OPTIONS
+" /*}}}*/
 
-" Ale settings
+" PLUGINS OPTIONS ----------------------------------------------------- /*{{{*/
+
+" ALE settings
 let g:ale_linters = {
 			\   'c': ['clang'],
+			\	'python': ['pycodestyle'],
 			\   'javascript': ['eslint'],
 			\}
 let g:ale_fixers = {
