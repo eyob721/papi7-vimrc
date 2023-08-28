@@ -6,18 +6,18 @@
 " e.g. <A-j>
 let c='a'
 while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
+	exec "set <A-".c.">=\e".c
+	exec "imap \e".c." <A-".c.">"
+	let c = nr2char(1+char2nr(c))
 endw
 
 " Fix for the ALT key + CAPITAL letters
 " e.g. <A-J>
 let c='a'
 while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-let c = nr2char(1+char2nr(c))
+	exec "set <A-".c.">=\e".c
+	exec "imap \e".c." <A-".c.">"
+	let c = nr2char(1+char2nr(c))
 endw
 
 set timeout ttimeoutlen=50
@@ -199,38 +199,38 @@ iabbrev p7 papi7
 " PLUGINS -------------------------------------------------------------- /*{{{*/
 " Use vim-plug plugin manager for vim
 call plug#begin('~/.vim/plugged')
-	" Colorscheme
-	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+" Colorscheme
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
-	" Autoparis plugin for quotes
-	Plug 'vim-scripts/Auto-Pairs'
+" Autoparis plugin for quotes
+Plug 'vim-scripts/Auto-Pairs'
 
-	" For displaying git signs
-	Plug 'airblade/vim-gitgutter'
-	Plug 'tpope/vim-fugitive'
+" For displaying git signs
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-	" To comment multiple lines
-	Plug 'tpope/vim-commentary'
+" To comment multiple lines
+Plug 'tpope/vim-commentary'
 
-	" Fuzzy Finder
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
+" Fuzzy Finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-	" Buffer closer
-	Plug 'Asheq/close-buffers.vim'
+" Buffer closer
+Plug 'Asheq/close-buffers.vim'
 
-	" Status line plugin
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+" Status line plugin
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-	" Ale - linter and analysis
-	Plug 'dense-analysis/ale'
+" Ale - linter and analysis
+Plug 'dense-analysis/ale'
 
-	" Vim surround
-	Plug 'tpope/vim-surround'
+" Vim surround
+Plug 'tpope/vim-surround'
 
-	" CoC Auto completion Use release branch (recommended)
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" CoC Auto completion Use release branch (recommended)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -238,13 +238,13 @@ call plug#end()
 
 " Ale settings
 let g:ale_linters = {
-\   'c': ['clang'],
-\   'javascript': ['eslint'],
-\}
+			\   'c': ['clang'],
+			\   'javascript': ['eslint'],
+			\}
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'c': ['trim_whitespace'],
-\}
+			\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+			\   'c': ['trim_whitespace'],
+			\}
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 
@@ -298,11 +298,11 @@ inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-@> to trigger completion
@@ -323,11 +323,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor
@@ -391,14 +391,14 @@ aug END
 
 " Vimscript to change the cursor shape when entering insert mode
 if has("autocmd")
-  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-  au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' |
-    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
-    \ elseif v:insertmode == 'r' |
-    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
-    \ endif
-  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+	au InsertEnter,InsertChange *
+				\ if v:insertmode == 'i' |
+				\   silent execute '!echo -ne "\e[5 q"' | redraw! |
+				\ elseif v:insertmode == 'r' |
+				\   silent execute '!echo -ne "\e[3 q"' | redraw! |
+				\ endif
+	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
 " /*}}}/*
