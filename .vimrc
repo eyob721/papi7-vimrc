@@ -258,6 +258,13 @@ colorscheme catppuccin-mocha
 " Choose background
 hi Normal guibg=NONE ctermbg=NONE
 
+" Dim special keys (tab:→\ ,trail:.)
+augroup dim_special_keys
+	au!
+	au VimEnter,BufReadPre,BufRead,BufNewFile,SourcePost *
+				\ hi SpecialKey ctermfg=grey guifg=grey21
+augroup END
+
 " /*}}}*/
 
 " COC CONFIG ----------------------------------------------------------- /*{{{*/
@@ -374,13 +381,6 @@ noremap <C-S-PageDown> :+tabmove<CR>
 " This will make sure that every additional file opened is opened in a tab
 " autocmd BufReadPost * tab ball
 
-" Dim special keys (tab:→\ ,trail:.)
-augroup dim_special_keys
-	au!
-	au VimEnter,BufReadPre,BufRead,BufNewFile,SourcePost *
-				\ hi SpecialKey ctermfg=grey guifg=grey21
-augroup END
-
 " Filetype options
 aug filetypes
 	au!
@@ -423,6 +423,7 @@ aug END
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 let g:airline_theme='catppuccin'
 
 " Custom config to show tab or space and tabwidth

@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define PI 3.14
+
 /**
  * main - test for vimrc
  *
@@ -13,5 +15,7 @@ int main(void)
 	{
 		printf("%d\n", i);
 	}
+	printf("PI = %f", PI);
 	return (0);
 }
+
