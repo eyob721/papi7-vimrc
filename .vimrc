@@ -171,6 +171,7 @@ inoremap <Left> <nop>
 
 " Better way of exiting insert mode
 inoremap jk <ESC>
+inoremap kj <ESC>
 
 " Toggle white spaces
 noremap <leader>- :set list! <CR>
