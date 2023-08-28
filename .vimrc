@@ -377,7 +377,8 @@ noremap <C-S-PageDown> :+tabmove<CR>
 " Dim special keys (tab:→\ ,trail:.)
 augroup dim_special_keys
 	au!
-	au VimEnter,BufReadPre,BufRead,BufNewFile * hi SpecialKey ctermfg=grey guifg=grey21
+	au VimEnter,BufReadPre,BufRead,BufNewFile,SourcePost *
+				\ hi SpecialKey ctermfg=grey guifg=grey21
 augroup END
 
 aug filetypes
