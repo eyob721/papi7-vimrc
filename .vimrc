@@ -59,7 +59,10 @@ set nowrap
 set textwidth=80
 
 " Show one plus the textwidth limit using a color column
-set colorcolumn=+1
+set colorcolumn=+0
+
+" Expand tabs into spaces
+set expandtab
 
 " Number of space the <TAB> character counts for
 set tabstop=4
@@ -194,6 +197,9 @@ nnoremap <C-a> ggVGG
 " papi7 :)
 iabbrev p7 papi7
 
+" shebang for python files
+iabbrev #!p #!/usr/bin/python3
+
 " /*}}}*/
 
 " PLUGINS -------------------------------------------------------------- /*{{{*/
@@ -250,6 +256,10 @@ let g:ale_fixers = {
 			\}
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
+
+" Git Gutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
 
 " /*}}}*/
 
@@ -358,7 +368,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Find files in the current dir
 noremap <leader>ff :Files <CR>
 " Find file in Alx/prjects dir
-noremap <leader>fa :Files ~/Alx/projects/<CR>
+noremap <leader>fa :Files ~/Files/Alx/Workspace/projects/<CR>
 " FInd buffers
 noremap <leader>fb :Buffers <CR>
 
