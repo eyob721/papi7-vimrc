@@ -246,14 +246,22 @@ call plug#end()
 
 " ALE settings
 let g:ale_linters = {
+            \   'sh': ['shellcheck'],
 			\   'c': ['clang'],
 			\	'python': ['pycodestyle'],
 			\   'javascript': ['eslint'],
 			\}
+" Previous fix
+" let g:ale_fixers = {
+" 			\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" 			\   'c': ['trim_whitespace'],
+" 			\}
+
 let g:ale_fixers = {
-			\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-			\   'c': ['trim_whitespace'],
+            \   'c': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'python': ['remove_trailing_lines', 'trim_whitespace'],
 			\}
+
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 
@@ -397,7 +405,7 @@ noremap <C-S-PageDown> :+tabmove<CR>
 " Filetype options
 aug filetypes
 	au!
-	au FileType c call SetOptionsC()
+	au FileType c,cpp call SetOptionsC()
 	au FileType python call SetOptionsPython()
 aug END
 
